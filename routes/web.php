@@ -68,3 +68,14 @@ route::get('/explore',[HomeController::class,'explore']);
 route::get('/search',[HomeController::class,'search']);
 
 route::get('/cat_search/{id}',[HomeController::class,'cat_search']);
+
+use Illuminate\Support\Facades\Artisan;
+
+Route::get('/migrate-now', function () {
+    try {
+        Artisan::call('migrate', ['--force' => true]);
+        return '<h1>✅ MIGRATE BERHASIL!</h1>';
+    } catch (\Exception $e) {
+        return '<h1>❌ ERROR:</h1> ' . $e->getMessage();
+    }
+});
