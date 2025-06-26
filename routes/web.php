@@ -3,10 +3,10 @@
 use Illuminate\Support\Facades\Route;
 
 
-use App\http\Controllers\AdminController;
-use App\http\Controllers\HomeController;
-use App\http\Middleware\Admin;
-use App\http\Middleware\UserMid;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeController;
+use App\Http\Middleware\Admin;
+use App\Http\Middleware\UserMid;
 
 route::get('/', [HomeController::class, 'index']);
 
@@ -69,14 +69,6 @@ route::get('/search',[HomeController::class,'search']);
 
 route::get('/cat_search/{id}',[HomeController::class,'cat_search']);
 
-use Illuminate\Support\Facades\Artisan;
 
-Route::get('/migrate-now', function () {
-    try {
-        Artisan::call('migrate', ['--force' => true]);
-        return '<h1 style="color:green">✅ MIGRATE BERHASIL!</h1><pre>' . Artisan::output() . '</pre>';
-    } catch (\Exception $e) {
-        return '<h1 style="color:red">❌ ERROR:</h1><pre>' . $e->getMessage() . '</pre>';
-    }
-})->withoutMiddleware([\Illuminate\Session\Middleware\StartSession::class]);
+
 
