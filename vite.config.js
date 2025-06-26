@@ -8,4 +8,12 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    server: {
+        https: true, // ini untuk dev mode
+    },
+    build: {
+        manifest: true,
+        outDir: 'public/build',
+        assetsDir: 'assets',
+    },
 });
