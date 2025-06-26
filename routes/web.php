@@ -74,8 +74,9 @@ use Illuminate\Support\Facades\Artisan;
 Route::get('/migrate-now', function () {
     try {
         Artisan::call('migrate', ['--force' => true]);
-        return '<h1>✅ MIGRATE BERHASIL!</h1>';
+        return '<h1 style="color:green">✅ MIGRATE BERHASIL!</h1><pre>' . Artisan::output() . '</pre>';
     } catch (\Exception $e) {
-        return '<h1>❌ ERROR:</h1> ' . $e->getMessage();
+        return '<h1 style="color:red">❌ ERROR:</h1><pre>' . $e->getMessage() . '</pre>';
     }
-});
+})->withoutMiddleware([\Illuminate\Session\Middleware\StartSession::class]);
+
