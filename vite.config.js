@@ -8,13 +8,5 @@ export default defineConfig({
             refresh: true,
         }),
     ],
-    server: {
-        https: true, // ini untuk dev mode
-    },
-    build: {
-        manifest: true,
-        outDir: 'public/build',  // Laravel expects manifest here
-        assetsDir: 'assets',     // Optional but useful
-        emptyOutDir: true,       // Clean before build
-    },
 });
+
