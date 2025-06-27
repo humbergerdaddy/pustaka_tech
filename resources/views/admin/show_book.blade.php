@@ -168,7 +168,7 @@
                 <td>{{$book->kategori->nama}}</td>
 
                 <td>
-                    <img class="bookimg"src="{{ asset('storage/book/' . $data->book_img) }}">
+                    <img class="bookimg"src="{{ asset('storage/book/' . $book->book_img) }}">
                 </td>
 
                 <td>
