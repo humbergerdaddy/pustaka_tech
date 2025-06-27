@@ -203,7 +203,8 @@ class AdminController extends Controller
         {
             $book_image_name = time().'.'.$book_image->getClientOriginalExtension();
 
-            $request->book_img->move('book', $book_image_name);
+            // $request->book_img->move('book', $book_image_name);
+            $request->book_img->move(public_path('book'), $book_image_name);
 
             $data->book_img = $book_image_name;
         }
