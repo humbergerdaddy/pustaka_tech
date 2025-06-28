@@ -182,7 +182,13 @@ class AdminController extends Controller
 
     public function update_book(Request $request, $id)
     {
-        $data = buku::find($id);
+
+        // STEP 1: Cek semua input dari form, termasuk gambar
+    dd($request->all());
+
+    $data = new buku;
+
+        // $data = buku::find($id);
 
         $data->judul = $request->title;
 
@@ -202,10 +208,7 @@ class AdminController extends Controller
 
         $book_image=$request->file('book_img');
 
-        // test file masuk apa enggak
-        if (!$request->hasFile('book_img')) {
-            dd('GAK ADA FILE YANG DIUPLOAD');
-        }
+    
         
         if($book_image)
         {
