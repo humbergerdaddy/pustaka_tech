@@ -183,12 +183,7 @@ class AdminController extends Controller
     public function update_book(Request $request, $id)
     {
 
-        // STEP 1: Cek semua input dari form, termasuk gambar
-    dd($request->all());
-
-    $data = new buku;
-
-        // $data = buku::find($id);
+        $data = buku::find($id);
 
         $data->judul = $request->title;
 
@@ -219,6 +214,9 @@ class AdminController extends Controller
 
             // perubahan struktur jadi simpan di storage (Solution bychatgpt)
             $path = $book_image->storeAs('public/book', $book_image_name);
+
+            // STEP 2: Cek path lengkap penyimpanan file
+        dd($path);
 
             $data->book_img = $book_image_name;
         }
