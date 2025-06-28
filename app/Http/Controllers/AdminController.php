@@ -209,14 +209,14 @@ class AdminController extends Controller
         {
             $book_image_name = time().'.'.$book_image->getClientOriginalExtension();
 
-            // $request->book_img->move('book', $book_image_name);
+            $request->book_img->move('book', $book_image_name);
             // $request->book_img->move(public_path('book'), $book_image_name);
 
             // perubahan struktur jadi simpan di storage (Solution bychatgpt)
             // $path = $book_image->storeAs('public/book', $book_image_name);
 
             // Simpan langsung ke folder public/book
-    $book_image->move(public_path('book'), $book_image_name);
+    // $book_image->move(public_path('book'), $book_image_name);
 
             
 
