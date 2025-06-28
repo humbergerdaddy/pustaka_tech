@@ -213,10 +213,12 @@ class AdminController extends Controller
             // $request->book_img->move(public_path('book'), $book_image_name);
 
             // perubahan struktur jadi simpan di storage (Solution bychatgpt)
-            $path = $book_image->storeAs('public/book', $book_image_name);
+            // $path = $book_image->storeAs('public/book', $book_image_name);
 
-            // STEP 2: Cek path lengkap penyimpanan file
-        dd($path);
+            // Simpan langsung ke folder public/book
+    $book_image->move(public_path('book'), $book_image_name);
+
+            
 
             $data->book_img = $book_image_name;
         }

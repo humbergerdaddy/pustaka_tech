@@ -132,7 +132,9 @@
 
                     <div class="paddings">
                         <label for="">Sampul Buku</label>
-                        <img style="width: 160px;" src="{{ asset('storage/book/' . $data->book_img) }}" alt="">
+                        
+                        <img src="{{ asset('book/' . $buku->book_img) }}" alt="Gambar Buku">
+
                     
 
                     </div>
