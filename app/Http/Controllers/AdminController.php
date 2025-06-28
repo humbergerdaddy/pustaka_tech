@@ -202,6 +202,11 @@ class AdminController extends Controller
 
         $book_image=$request->file('book_img');
 
+        // test file masuk apa enggak
+        if (!$request->hasFile('book_img')) {
+            dd('GAK ADA FILE YANG DIUPLOAD');
+        }
+        
         if($book_image)
         {
             $book_image_name = time().'.'.$book_image->getClientOriginalExtension();
