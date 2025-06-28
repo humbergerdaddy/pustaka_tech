@@ -125,7 +125,7 @@ class AdminController extends Controller
 
         $data->kategori_id = $request->category;
 
-        $book_image=$request->book_img;
+        $book_image=$request->file('book_img');
 
         if($book_image)
         {
@@ -200,7 +200,7 @@ class AdminController extends Controller
 
         $data->kategori_id= $request->category;
 
-        $book_image=$request->book_img;
+        $book_image=$request->file('book_img');
 
         if($book_image)
         {
