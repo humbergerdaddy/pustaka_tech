@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Storage;
 
+use Illuminate\Support\Facades\File;
+
 class AdminController extends Controller
 {
     public function index()
@@ -148,6 +150,9 @@ class AdminController extends Controller
         //     $data->book_img = $book_image_name;
         // }
 
+         if (!File::exists(storage_path('app/public/book'))) {
+        File::makeDirectory(storage_path('app/public/book'), 0755, true);
+    }
         // STORE KE STORAGE > PUBLIC > BOOK. CAPEK BANGET GUE ANJIR😭
 
             if ($request->hasFile('book_img')) {
@@ -231,6 +236,11 @@ class AdminController extends Controller
             // Simpan langsung ke folder public/book
     // $book_image->move(public_path('book'), $book_image_name);
 
+
+    // Cek & buat folder jika belum ada
+    if (!File::exists(storage_path('app/public/book'))) {
+        File::makeDirectory(storage_path('app/public/book'), 0755, true);
+    }
     // STORE KE STORAGE > PUBLIC > BOOK. CAPEK BANGET GUE ANJIR😭
 
             if ($request->hasFile('book_img')) {

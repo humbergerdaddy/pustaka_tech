@@ -25,7 +25,7 @@
     <section class="book-gallery">
     @foreach($data as $data)
         <div class="book-card">
-            <img src="{{ asset('storage/' . $data->book_img) }}" alt="Buku 1">
+            <img src="{{ url('/gambar_buku/' . basename($book->book_img)) }}" alt="Buku 1">
             <div class="book-info">
             <h3>{{$data->judul}}</h3>
             </div>

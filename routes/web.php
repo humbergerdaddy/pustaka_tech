@@ -8,6 +8,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Middleware\Admin;
 use App\Http\Middleware\UserMid;
 
+use Illuminate\Support\Facades\Storage;
+
 route::get('/', [HomeController::class, 'index']);
 
 Route::middleware([
@@ -69,6 +71,15 @@ route::get('/search',[HomeController::class,'search']);
 
 route::get('/cat_search/{id}',[HomeController::class,'cat_search']);
 
+// akalin bypass 403 forbidden
+Route::get('/gambar_buku/{filename}', function ($filename) {
+    $path = storage_path('app/public/book/' . $filename);
 
+    if (!file_exists($path)) {
+        abort(404);
+    }
+
+    return response()->file($path);
+});
 
 
