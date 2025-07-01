@@ -306,7 +306,7 @@ a.cancel-btn:hover {
 <section class="book-gallery">
     @foreach($data as $data)
         <div class="book-card">
-            <img src="book/{{$data->book_img}}" alt="Buku 1">
+            <img src="{{ url('/gambar_buku/' . basename($data->book_img)) }}" alt="Buku 1">
             <h3>{{$data->judul}}</h3>
             <a href="{{url('book_details',$data->id)}}" class="detail-btn">Lihat detail buku</a>
             

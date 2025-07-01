@@ -133,7 +133,7 @@
                     <div class="paddings">
                         <label for="">Sampul Buku</label>
                         
-                        <img src="{{ url('/gambar_buku/' . basename($book->book_img)) }}" alt="Gambar Buku">
+                        <img src="{{ url('/gambar_buku/' . basename($data->book_img)) }}" alt="Gambar Buku">
 
                     
 
