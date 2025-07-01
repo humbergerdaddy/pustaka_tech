@@ -186,7 +186,7 @@
         @endif
     <div class="detail-container">
         <div class="detail-image">
-            <img src="/book/{{ $data->book_img }}" alt="{{ $data->judul }}">
+            <img src="{{ asset('storage/' . $data->book_img) }}" alt="{{ $data->judul }}">
         </div>
 
         <div class="detail-info">
