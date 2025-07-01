@@ -14,6 +14,8 @@ use App\Models\Pinjam;
 
 use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\Storage;
+
 class AdminController extends Controller
 {
     public function index()
@@ -207,9 +209,9 @@ class AdminController extends Controller
         
         if($book_image)
         {
-            $book_image_name = time().'.'.$book_image->getClientOriginalExtension();
+            // $book_image_name = time().'.'.$book_image->getClientOriginalExtension();
 
-            $request->book_img->move('book', $book_image_name);
+            // $request->book_img->move('book', $book_image_name);
             // $request->book_img->move(public_path('book'), $book_image_name);
 
             // perubahan struktur jadi simpan di storage (Solution bychatgpt)
@@ -218,7 +220,17 @@ class AdminController extends Controller
             // Simpan langsung ke folder public/book
     // $book_image->move(public_path('book'), $book_image_name);
 
-            
+    // STORE KE STORAGE > PUBLIC > BOOK. CAPEK BANGET GUE ANJIR😭
+
+            if ($request->hasFile('book_img')) {
+        $book_image = $request->file('book_img');
+
+        // Simpan ke storage/app/public/book
+        $path = $book_image->store('book', 'public'); // 'book' = folder, 'public' = disk
+
+        // Simpan nama path-nya ke database
+        $data->book_img = $path;
+    }
 
             $data->book_img = $book_image_name;
         }
