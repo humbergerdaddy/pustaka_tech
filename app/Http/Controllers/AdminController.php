@@ -129,12 +129,12 @@ class AdminController extends Controller
 
         $book_image=$request->file('book_img');
 
-        if($book_image)
-        {
-            $book_image_name = time().'.'.$book_image->getClientOriginalExtension();
+        // if($book_image)
+        // {
+        //     $book_image_name = time().'.'.$book_image->getClientOriginalExtension();
 
             // INI KODE SEBELUMNYA
-            $request->book_img->move('book', $book_image_name);
+            // $request->book_img->move('book', $book_image_name);
 
             // FIXING BUG RAILWAY SOLUSI DR CHATGPT
 
@@ -145,19 +145,19 @@ class AdminController extends Controller
         //     $path = $book_image->storeAs('public/book', $book_image_name);
 
 
-            $data->book_img = $book_image_name;
+        //     $data->book_img = $book_image_name;
         // }
 
         // STORE KE STORAGE > PUBLIC > BOOK. CAPEK BANGET GUE ANJIR😭
 
-        //     if ($request->hasFile('book_img')) {
-        // $book_image = $request->file('book_img');
+            if ($request->hasFile('book_img')) {
+        $book_image = $request->file('book_img');
 
         // Simpan ke storage/app/public/book
-        // $path = $book_image->store('book', 'public'); // 'book' = folder, 'public' = disk
+        $path = $book_image->store('book', 'public'); // 'book' = folder, 'public' = disk
 
         // Simpan nama path-nya ke database
-        // $data->book_img = $path;
+        $data->book_img = $path;
     }
 
         $data->save();
