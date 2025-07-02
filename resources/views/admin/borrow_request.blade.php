@@ -158,7 +158,7 @@ td span[style*="black"] {
                     <td>{{$data->user->phone}}</td>
                     <td>{{$data->buku->judul}}</td>
                     <td>{{$data->buku->jumlah}}</td>
-                    <td><img style="height:125px; width: 75px;"src="book/{{$data->buku->book_img}}" alt=""></td>
+                    <td><img style="height:125px; width: 75px;"src="{{ url('/gambar_buku/' . basename($data->book_img)) }}" alt=""></td>
                     
                     <td>@if($data->status == 'Disetujui')
 
