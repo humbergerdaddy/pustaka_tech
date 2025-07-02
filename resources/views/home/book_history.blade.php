@@ -193,7 +193,7 @@ a.cancel-btn:hover {
                 <td>{{$data->buku->judul}}</td>
                 <td>{{$data->buku->penulis}}</td>
                 <td>{{$data->status}}</td>
-                <td><img src="book/{{$data->buku->book_img}}" alt="Atomic Habits"></td>
+                <td><img src="{{ url('/gambar_buku/' . basename($data->book_img)) }}" alt="Atomic Habits"></td>
                 <td>
                     @if($data->status == 'Menunggu')
                 <a href="{{url('cancel_req',$data->id)}}" class="cancel-btn">Batalkan</a>
